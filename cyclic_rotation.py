@@ -74,7 +74,7 @@ def solution(A, K):
 # If it would, starting from position 0, rotate by N mod i+k
 
 # K = len(N) % K
-
+"""
 def solution(A, K):
 
 
@@ -98,3 +98,24 @@ def solution(A, K):
     return(rotated_list)
 result = solution([1, 2, 3, 4], 5)
 print(result)
+"""
+
+
+"""
+New solution as of 02/08/2022 going through problems again.
+Reduced O(n) to O(1)
+
+"""
+
+# you can write to stdout for debugging purposes, e.g.
+# print("this is a debug message")
+def solution(A, K):
+    if len(A) == 0:
+        return []
+    if abs(K) > len(A):
+        K = K % len(A)
+    elif K == len(A):
+        return A
+    A = A[-K:] + A[:-K]
+
+    return A
